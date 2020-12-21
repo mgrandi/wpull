@@ -16,13 +16,14 @@ import re
 RELEASE_LEVEL_MAP = {
     'a': 'alpha',
     'b': 'beta',
-    'c': 'candidate'
+    'c': 'candidate',
+    "m": "mgrandi_dev"
 }
 
 
 def get_version_tuple(string):
     '''Return a version tuple from a string.'''
-    match = re.match(r'(\d+)\.(\d+)\.?(\d*)([abc]?)(\d*)', string)
+    match = re.match(r'(\d+)\.(\d+)\.?(\d*)([abcm]?)(\d*)', string)
     major = int(match.group(1))
     minor = int(match.group(2))
     patch = int(match.group(3) or 0)
@@ -32,5 +33,5 @@ def get_version_tuple(string):
     return major, minor, patch, level, serial
 
 
-__version__ = '2.0.3'
+__version__ = '2.0.3m'
 version_info = get_version_tuple(__version__)
