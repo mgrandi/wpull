@@ -9,7 +9,7 @@ def main(exit=True, install_tornado_bridge=True, use_signals=True):
     if install_tornado_bridge:
         tornado.platform.asyncio.AsyncIOMainLoop().install()
 
-    arg_parser = AppArgumentParser()
+    arg_parser = AppArgumentParser(fromfile_prefix_chars="@")
     args = arg_parser.parse_args()
 
     builder = Builder(args)
